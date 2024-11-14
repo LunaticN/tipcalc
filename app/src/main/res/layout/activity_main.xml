@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/subtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/subtotal"
+        app:layout_constraintBottom_toBottomOf="@+id/subtotalEt"
+        app:layout_constraintEnd_toStartOf="@+id/subtotalEt"
+        app:layout_constraintTop_toTopOf="@+id/subtotalEt" />
+
+    <EditText
+        android:id="@+id/subtotalEt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tipPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/tip_percentage"
+        app:layout_constraintBottom_toBottomOf="@+id/tipPercentSb"
+        app:layout_constraintEnd_toStartOf="@+id/tipPercentSb"
+        app:layout_constraintTop_toTopOf="@+id/tipPercentSb" />
+
+    <SeekBar
+        android:id="@+id/tipPercentSb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtotalEt" />
+
+    <TextView
+        android:id="@+id/tipIs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/your_tip_is"
+        app:layout_constraintBottom_toBottomOf="@+id/tipQuality"
+        app:layout_constraintEnd_toStartOf="@+id/tipQuality"
+        app:layout_constraintTop_toTopOf="@+id/tipQuality" />
+
+    <TextView
+        android:id="@+id/tipQuality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipPercentSb" />
+
+    <TextView
+        android:id="@+id/tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/tip"
+        app:layout_constraintBottom_toBottomOf="@+id/tipAmt"
+        app:layout_constraintEnd_toStartOf="@+id/tipAmt"
+        app:layout_constraintTop_toTopOf="@+id/tipAmt" />
+
+    <TextView
+        android:id="@+id/tipAmt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipQuality" />
+
+    <TextView
+        android:id="@+id/grandTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/grand_total"
+        app:layout_constraintBottom_toBottomOf="@+id/grandTotalAmt"
+        app:layout_constraintEnd_toStartOf="@+id/grandTotalAmt"
+        app:layout_constraintTop_toTopOf="@+id/grandTotalAmt" />
+
+    <TextView
+        android:id="@+id/grandTotalAmt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipAmt" />
+</androidx.constraintlayout.widget.ConstraintLayout>

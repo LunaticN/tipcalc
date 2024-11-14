@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="subtotal">Subtotal: </string>
+    <string name="tip_percentage">Tip Percentage: </string>
+    <string name="your_tip_is">Your tip is: </string>
+    <string name="tip">Tip: </string>
+    <string name="grand_total">Grand Total</string>
+</resources>
