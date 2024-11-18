@@ -5,56 +5,58 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/subtotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="24dp"
         android:text="@string/subtotal"
         app:layout_constraintBottom_toBottomOf="@+id/subtotalEt"
-        app:layout_constraintEnd_toStartOf="@+id/subtotalEt"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/subtotalEt" />
 
     <EditText
         android:id="@+id/subtotalEt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="128dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/subtotal"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tipPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="24dp"
         android:text="@string/tip_percentage"
         app:layout_constraintBottom_toBottomOf="@+id/tipPercentSb"
-        app:layout_constraintEnd_toStartOf="@+id/tipPercentSb"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tipPercentSb" />
 
     <SeekBar
         android:id="@+id/tipPercentSb"
-        android:layout_width="wrap_content"
+        android:layout_width="150sp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tipPercentSbProgress"
+        app:layout_constraintStart_toEndOf="@+id/tipPercent"
         app:layout_constraintTop_toBottomOf="@+id/subtotalEt" />
 
     <TextView
         android:id="@+id/tipIs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="24dp"
         android:text="@string/your_tip_is"
         app:layout_constraintBottom_toBottomOf="@+id/tipQuality"
-        app:layout_constraintEnd_toStartOf="@+id/tipQuality"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tipQuality" />
 
     <TextView
@@ -64,17 +66,17 @@
         android:layout_marginTop="24dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tipIs"
         app:layout_constraintTop_toBottomOf="@+id/tipPercentSb" />
 
     <TextView
         android:id="@+id/tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="24dp"
         android:text="@string/tip"
         app:layout_constraintBottom_toBottomOf="@+id/tipAmt"
-        app:layout_constraintEnd_toStartOf="@+id/tipAmt"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tipAmt" />
 
     <TextView
@@ -84,17 +86,17 @@
         android:layout_marginTop="24dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tip"
         app:layout_constraintTop_toBottomOf="@+id/tipQuality" />
 
     <TextView
         android:id="@+id/grandTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="24dp"
         android:text="@string/grand_total"
         app:layout_constraintBottom_toBottomOf="@+id/grandTotalAmt"
-        app:layout_constraintEnd_toStartOf="@+id/grandTotalAmt"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/grandTotalAmt" />
 
     <TextView
@@ -104,6 +106,16 @@
         android:layout_marginTop="24dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/grandTotal"
         app:layout_constraintTop_toBottomOf="@+id/tipAmt" />
+
+    <TextView
+        android:id="@+id/tipPercentSbProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/tipPercentSb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tipPercentSb" />
 </androidx.constraintlayout.widget.ConstraintLayout>
