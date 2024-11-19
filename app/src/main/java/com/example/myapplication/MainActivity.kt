@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         var tipPercentNum = 0
         tipPercentSeekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                TODO("Not yet implemented")
+                tipPercentNum = tipPercentSeekBar.progress
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -59,13 +59,42 @@ class MainActivity : AppCompatActivity() {
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 TODO("Not yet implemented")
-                //get progress of seek bar here
             }
         })
+
+        tipQuality(tipPercentNum)
+
+
     }
 
     private fun calculateTip(subtotal: Int, tipPercent: Int): Double{
+        return (subtotal * ((tipPercent * 0.01) + 1))
+    }
+
+    private fun onlyTip(subtotal: Int, tipPercent: Int): Double{
         return (subtotal * (tipPercent * 0.01))
     }
 
+    private fun tipQuality(tipPercent: Int): Unit{
+        if (tipPercent >= 26) {
+            tipQualityTextView.text = "awesome"
+            tipQualityTextView.setTextColor(getColor(R.color.awesome))
+        }
+        else if (tipPercent >= 21) {
+            tipQualityTextView.text = "great"
+            tipQualityTextView.setTextColor(getColor(R.color.great))
+        }
+        else if (tipPercent >= 16) {
+            tipQualityTextView.text = "good"
+            tipQualityTextView.setTextColor(getColor(R.color.good))
+        }
+        else if (tipPercent >= 10) {
+            tipQualityTextView.text = "ok"
+            tipQualityTextView.setTextColor(getColor(R.color.ok))
+        }
+        else {
+            tipQualityTextView.text = "poor"
+            tipQualityTextView.setTextColor(getColor(R.color.poor))
+        }
+    }
 }

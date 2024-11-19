@@ -3,4 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="pink">#fa98d5</color>
+    <color name="awesome">#3dd3f5</color>
+    <color name="great">#27701c</color>
+    <color name="good">#40e651</color>
+    <color name="ok">#f2e250</color>
+    <color name="poor">#d9321c</color>
 </resources>
