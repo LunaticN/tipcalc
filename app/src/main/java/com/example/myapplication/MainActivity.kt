@@ -1,24 +1,20 @@
 package com.example.myapplication
 
-import android.opengl.ETC1
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     private lateinit var subtotalEditText: EditText
     private lateinit var tipPercentSeekBar: SeekBar
     private lateinit var tipPercentSeekBarProgressTextView: TextView
     private lateinit var tipQualityTextView: TextView
-    private lateinit var tipTextView: TextView
-    private lateinit var grandTotalTextView: TextView
+    private lateinit var tipAmtTextView: TextView
+    private lateinit var grandTotalAmtTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,54 +24,53 @@ class MainActivity : AppCompatActivity() {
         tipPercentSeekBar = findViewById(R.id.tipPercentSb)
         tipPercentSeekBarProgressTextView = findViewById(R.id.tipPercentSbProgress)
         tipQualityTextView = findViewById(R.id.tipQuality)
-        tipTextView = findViewById(R.id.tip)
-        grandTotalTextView = findViewById(R.id.grandTotal)
+        tipAmtTextView = findViewById(R.id.tipAmt)
+        grandTotalAmtTextView = findViewById(R.id.grandTotalAmt)
 
+        tipPercentSeekBar.progress = 20
+        tipQualityTextView.text = "good"
+        tipQualityTextView.setTextColor(getColor(R.color.good))
 
-        var subtotalNum = 0
-        subtotalEditText.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                TODO("Not yet implemented")
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                subtotalNum = Integer.parseInt(subtotalEditText.text.toString())
-            }
-        })
-
+        var subtotalNum = 0.0
         var tipPercentNum = 0
         tipPercentSeekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 tipPercentNum = tipPercentSeekBar.progress
+                tipPercentSeekBarProgressTextView.text = tipPercentSeekBar.progress.toString()
+                fullCalc(tipPercentNum, subtotalNum)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                TODO("Not yet implemented")
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                TODO("Not yet implemented")
             }
         })
 
-        tipQuality(tipPercentNum)
+        subtotalEditText.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
 
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                subtotalNum = subtotalEditText.text.toString().toDouble()
+                fullCalc(tipPercentNum, subtotalNum)
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
 
     }
 
-    private fun calculateTip(subtotal: Int, tipPercent: Int): Double{
+    private fun calculateGrandTotal(subtotal: Double, tipPercent: Int): Double{
         return (subtotal * ((tipPercent * 0.01) + 1))
     }
 
-    private fun onlyTip(subtotal: Int, tipPercent: Int): Double{
+    private fun calculateOnlyTip(subtotal: Double, tipPercent: Int): Double{
         return (subtotal * (tipPercent * 0.01))
     }
 
-    private fun tipQuality(tipPercent: Int): Unit{
+    private fun tipQuality(tipPercent: Int){
         if (tipPercent >= 26) {
             tipQualityTextView.text = "awesome"
             tipQualityTextView.setTextColor(getColor(R.color.awesome))
@@ -96,5 +91,14 @@ class MainActivity : AppCompatActivity() {
             tipQualityTextView.text = "poor"
             tipQualityTextView.setTextColor(getColor(R.color.poor))
         }
+    }
+
+
+    private fun fullCalc(tipPercent: Int, subtotal: Double){
+        val grandTotal = calculateGrandTotal(subtotal, tipPercent)
+        grandTotalAmtTextView.text = grandTotal.toString() //grand total is set
+        val tipOnly = calculateOnlyTip(subtotal, tipPercent)
+        tipAmtTextView.text = tipOnly.toString() //tip only is set
+        tipQuality(tipPercent) //tip quality indicator is set
     }
 }

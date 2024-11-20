@@ -18,36 +18,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/subtotalEt" />
 
-    <EditText
-        android:id="@+id/subtotalEt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
-        android:ems="10"
-        android:hint="amount"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/subtotal"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tipPercent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="@string/tip_percentage"
-        app:layout_constraintBottom_toBottomOf="@+id/tipPercentSb"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tipPercentSb" />
-
     <SeekBar
         android:id="@+id/tipPercentSb"
         android:layout_width="150sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="72dp"
         android:max="35"
-        app:layout_constraintEnd_toStartOf="@+id/tipPercentSbProgress"
         app:layout_constraintStart_toEndOf="@+id/tipPercent"
         app:layout_constraintTop_toBottomOf="@+id/subtotalEt" />
 
@@ -62,62 +39,80 @@
         app:layout_constraintTop_toTopOf="@+id/tipQuality" />
 
     <TextView
-        android:id="@+id/tipQuality"
+        android:id="@+id/grandTotalAmt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tipIs"
-        app:layout_constraintTop_toBottomOf="@+id/tipPercentSb" />
-
-    <TextView
-        android:id="@+id/tip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="@string/tip"
-        app:layout_constraintBottom_toBottomOf="@+id/tipAmt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tipAmt" />
-
-    <TextView
-        android:id="@+id/tipAmt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tip"
-        app:layout_constraintTop_toBottomOf="@+id/tipQuality" />
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toEndOf="@+id/grandTotal"
+        app:layout_constraintTop_toBottomOf="@+id/tipAmt" />
 
     <TextView
         android:id="@+id/grandTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="72dp"
         android:text="@string/grand_total"
         app:layout_constraintBottom_toBottomOf="@+id/grandTotalAmt"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/subtotalEt"
         app:layout_constraintTop_toTopOf="@+id/grandTotalAmt" />
 
     <TextView
-        android:id="@+id/grandTotalAmt"
+        android:id="@+id/tipAmt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/grandTotal"
-        app:layout_constraintTop_toBottomOf="@+id/tipAmt" />
+        android:layout_marginStart="32dp"
+        app:layout_constraintStart_toEndOf="@+id/tip"
+        app:layout_constraintTop_toTopOf="@+id/subtotalEt" />
 
     <TextView
         android:id="@+id/tipPercentSbProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:text=""
+        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/tipPercentSb"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tipPercentSb"
         app:layout_constraintTop_toTopOf="@+id/tipPercentSb" />
+
+    <TextView
+        android:id="@+id/tipQuality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toEndOf="@+id/tipIs"
+        app:layout_constraintTop_toBottomOf="@+id/tipPercentSb" />
+
+    <TextView
+        android:id="@+id/tipPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="@string/tip_percentage"
+        app:layout_constraintBottom_toBottomOf="@+id/tipPercentSb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tipPercentSb" />
+
+    <TextView
+        android:id="@+id/tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:text="@string/tip"
+        app:layout_constraintBottom_toBottomOf="@+id/tipAmt"
+        app:layout_constraintStart_toEndOf="@+id/subtotalEt"
+        app:layout_constraintTop_toTopOf="@+id/tipAmt" />
+
+    <EditText
+        android:id="@+id/subtotalEt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:hint="amount"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/subtotal"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
