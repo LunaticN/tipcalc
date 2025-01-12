@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        subtotalEditText = findViewById(R.id.subtotal)
+        subtotalEditText = findViewById(R.id.subtotalEt)
         tipPercentSeekBar = findViewById(R.id.tipPercentSb)
         tipPercentSeekBarProgressTextView = findViewById(R.id.tipPercentSbProgress)
         tipQualityTextView = findViewById(R.id.tipQuality)
